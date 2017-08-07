@@ -10,8 +10,9 @@
 
 # Build
 - Fork repo.
+- Go to [openweather](http://openweathermap.org)
 - Go to the config directory and add the api key to the example.index.js file and rename the file to index.js.
 - Run npm install to download dependencies.
 - In the terminal 'npm start' to start node.
 - In the terminal 'npm build' to start web-pack.
-- Open the browser to 'localhost:8080' to run app in the browser.
+- Open the browser to 'localhost:3000' to run app in the browser.
