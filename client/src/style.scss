@@ -8,3 +8,39 @@ body {
 		text-align: center;
 	}
 }
+
+.header {
+	background-color: #fff;
+	-webkit-box-shadow:0px 1px 1px #de1dde;
+  -moz-box-shadow:0px 1px 1px #de1dde;
+  box-shadow:0px 1px 1px #de1dde;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.weather-box {
+  h2 {
+    color: #fff;
+  }
+  p {
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+  }
+  border: 2px solid #bbb;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  background: radial-gradient(#d8c6d8, #de1dde);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  width: 700px;
+  resize: vertical;
+  overflow: auto;
+}
