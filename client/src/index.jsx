@@ -35,14 +35,13 @@ class App extends React.Component {
 	        isCity: false,
 	        class: this.state.class === 'animate-image' ? 'animate-image-two' : 'animate-image'
         })
-        console.log(data)
+        //console.log(data)
 			}.bind(this),
 			error: function(err) {
 				if(err) {
 					this.setState({
 						isCity: true
 					})
-					console.log('not found');
 				}
 			}.bind(this)
 		})
@@ -67,6 +66,7 @@ class App extends React.Component {
       	<h1>What's the Weather in Your City?</h1>
         <Header handleSubmit={this.handleSubmit} handleChange={this.handleChange} city={this.state.city}/>
         <div className='weather-box'>
+          {this.state.isCity ? <p>Choose another city or check spelling</p> : null}
           <h2>{this.state.weatherData.name}</h2>
 	      	<p>{this.state.weatherData.weather[0].description}</p>
 	      	<img className={this.state.class} width='100' src={this.state.image}/>
