@@ -8,9 +8,10 @@ import Header from './components/input.jsx';
 class App extends React.Component {
 	constructor(props) {
 		super(props)
-  let sampleData = {city: {name: 'Your City'}, weather:[{description: 'Clear Sky', icon: '01n', main: 'Clear'}], main: {temp: 255.39, humidity:0, pressure:0}, wind: {speed: 0}}
+	  var localCache = localStorage.getItem('cachedWeather');
+    let sampleData = {city: {name: 'Your City'}, weather:[{description: 'Clear Sky', icon: '01n', main: 'Clear'}], main: {temp: 255.39, humidity:0, pressure:0}, wind: {speed: 0}}
 		this.state = {
-    	weatherData: sampleData,
+    	weatherData: JSON.parse(localCache) || sampleData,
     	city: '',
     	image: 'http://openweathermap.org/img/w/10d.png',
     	isCity: false,
@@ -35,7 +36,7 @@ class App extends React.Component {
 	        isCity: false,
 	        class: this.state.class === 'animate-image' ? 'animate-image-two' : 'animate-image'
         })
-        //console.log(data)
+        localStorage.setItem('cachedWeather', JSON.stringify(data));
 			}.bind(this),
 			error: function(err) {
 				if(err) {
