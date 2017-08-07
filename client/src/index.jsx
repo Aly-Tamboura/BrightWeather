@@ -12,7 +12,9 @@ class App extends React.Component {
 		this.state = {
     	weatherData: sampleData,
     	city: '',
-    	image: 'http://openweathermap.org/img/w/01d.png',
+    	image: 'http://openweathermap.org/img/w/10d.png',
+    	isCity: false,
+    	class: 'animate-image'
     }
 		this.getWeatherData = this.getWeatherData.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,12 +32,16 @@ class App extends React.Component {
 				this.setState({
         	weatherData: data,
 	        image: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+	        isCity: false,
 	        class: this.state.class === 'animate-image' ? 'animate-image-two' : 'animate-image'
         })
         console.log(data)
 			}.bind(this),
 			error: function(err) {
 				if(err) {
+					this.setState({
+						isCity: true
+					})
 					console.log('not found');
 				}
 			}.bind(this)
